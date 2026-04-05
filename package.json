@@ -20,6 +20,11 @@
         "format": "prettier --write .",
         "lhci": "lhci",
         "lhci:autorun": "npm run build && lhci autorun"
+        "electron": "electron .",
+        "electron:build": "vite build && electron-builder",
+        "electron:build:win": "vite build && electron-builder --win",
+        "electron:build:mac": "vite build && electron-builder --mac",
+        "electron:build:linux": "vite build && electron-builder --linux",
     },
     "repository": {
         "type": "git",
@@ -32,6 +37,14 @@
         "url": "https://github.com/monochrome-music/monochrome/issues"
     },
     "homepage": "https://github.com/monochrome-music/monochrome#readme",
+    "main": "electron-main.js",
+    "build": {
+        "appId": "tf.monochrome",
+        "productName": "Monochrome",
+        "win": { "target": "nsis" },
+        "mac": { "target": "dmg" },
+        "linux": { "target": "AppImage" }
+    },
     "devDependencies": {
         "@capacitor/assets": "^3.0.5",
         "@capacitor/cli": "^8.2.0",
@@ -56,6 +69,8 @@
         "vite-bundle-visualizer": "^1.2.1",
         "vite-plugin-purgecss": "^0.2.13",
         "vite-plugin-pwa": "^1.2.0"
+        "electron": "^41.1.1",
+        "electron-builder": "^26.8.1",
     },
     "overrides": {
         "sourcemap-codec": "^1.4.14",
