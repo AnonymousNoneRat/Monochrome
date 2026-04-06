@@ -16,7 +16,10 @@ function createWindow() {
         icon: path.join(__dirname, 'assets/512.png'),
     });
 
-    win.loadFile(path.join(__dirname, 'dist/index.html'));
+    const indexPath = path.join(__dirname, 'dist/index.html');
+    console.log('Loading:', indexPath);
+    win.loadFile(indexPath);
+    win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
